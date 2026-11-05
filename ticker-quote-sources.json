@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Mark Cuban",
+    "quote": "Sales cure all.",
+    "image": "assets/shark-mark-cuban.jpg",
+    "source": "https://greatness.floodgate.com/episodes/mark-cuban-on-why-you-only-have-to-be-right-onceif-you-take-big-enough-swings-along-the-way/transcript"
+  },
+  {
+    "name": "Lori Greiner",
+    "quote": "I know a hero from a zero.",
+    "image": "assets/shark-lori-greiner.jpg",
+    "source": "https://www.yahoo.com/entertainment/12-most-successful-companies-got-185026676.html"
+  },
+  {
+    "name": "Kevin O’Leary",
+    "quote": "You’re dead to me!",
+    "image": "assets/shark-kevin-oleary.jpg",
+    "source": "https://www.imdb.com/title/tt1442550/characters/nm2891968/"
+  },
+  {
+    "name": "Barbara Corcoran",
+    "quote": "My best successes came on the heels of failures.",
+    "image": "assets/shark-barbara-corcoran.jpg",
+    "source": "https://www.tonyrobbins.com/what-is-leadership/authentic-leadership-style"
+  },
+  {
+    "name": "Daymond John",
+    "quote": "My money, homie.",
+    "image": "assets/shark-daymond-john.jpg",
+    "source": "https://podfollow.com/mick-unplugged/episode/bb1e39b9ecb351a2b168fe870f91cf551e2d48ad/view"
+  },
+  {
+    "name": "Robert Herjavec",
+    "quote": "A goal without a timeline is just a dream.",
+    "image": "assets/shark-robert-herjavec.jpg",
+    "source": "https://www.linkedin.com/posts/robertherjavec_goals-entrepreneurlife-takeaction-activity-7238794680232984577-T3Cc"
+  }
+]

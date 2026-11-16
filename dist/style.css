@@ -124,3 +124,8 @@ body>footer .logo{font-size:23px}
 .card a.shop.nearby-bounce{animation:nearby-bounce .58s cubic-bezier(.22,.61,.36,1)}
 @keyframes nearby-bounce{0%,100%{translate:0 0}30%{translate:0 -9px}55%{translate:0 1px}76%{translate:0 -4px}}
 @media(prefers-reduced-motion:reduce){.card a.shop.nearby-bounce{animation:none}}
+
+/* Factual brand context for finds without a verified episode quote. */
+.card .tank-story{font-size:13px;line-height:1.55;margin:16px 0 0;padding-left:12px;border-left:2px solid var(--orange)}
+.shark-badges:empty{display:none}
+@media(max-width:680px){.card .tank-story{font-size:11px;margin-top:12px;padding-left:8px}}

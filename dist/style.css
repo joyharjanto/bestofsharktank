@@ -131,3 +131,6 @@ body>footer .logo{font-size:23px}
 @media(max-width:680px){.card .tank-story{font-size:11px;margin-top:12px;padding-left:8px}}
 
 .sad-shark-seal .shark-seal-photo{background:#e7f1ff}.sad-shark-seal .shark-seal-photo img{object-fit:contain;object-position:center}
+
+/* Yellow highlight on the opening line of the hero headline. */
+.hero .headline-highlight{display:inline-block;background:var(--lime);line-height:.95;padding:.06em .025em .1em;margin:0 -.025em .04em}

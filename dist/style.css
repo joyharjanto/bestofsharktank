@@ -132,5 +132,7 @@ body>footer .logo{font-size:23px}
 
 .sad-shark-seal .shark-seal-photo{background:#e7f1ff}.sad-shark-seal .shark-seal-photo img{object-fit:contain;object-position:center}
 
-/* Yellow highlight on the opening line of the hero headline. */
+/* Yellow highlight behind both lines of the hero headline. */
 .hero .headline-highlight{display:inline-block;background:var(--lime);line-height:.95;padding:.06em .025em .1em;margin:0 -.025em .04em}
+
+.built-credit{font-size:12px;white-space:nowrap;text-decoration:underline;text-underline-offset:4px}.built-credit:hover{color:var(--blue)}

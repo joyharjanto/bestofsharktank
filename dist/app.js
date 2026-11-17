@@ -54,3 +54,42 @@ if(typeof matchMedia==='function' && matchMedia('(hover: hover) and (pointer: fi
  document.addEventListener('pointerleave',()=>{nearbyPointer=null;shopButtons.forEach(button=>{const state=bounceState.get(button);if(state)state.armed=true})});
  shopButtons.forEach(button=>button.addEventListener('animationend',event=>{if(event.animationName==='nearby-bounce')button.classList.remove('nearby-bounce')}));
 }
+
+// Product analytics. A blocked analytics script never prevents shopping.
+if (typeof window !== 'undefined' && window.posthog) {
+ const analyticsProducts = new Map(products.map(product => [product.id, product]));
+ function captureAnalytics(event, properties) {
+  try { window.posthog.capture(event, properties); } catch (_) { /* Shopping remains available. */ }
+ }
+ function analyticsProductProperties(card) {
+  const product = analyticsProducts.get(card.dataset.id);
+  return {product_id: product.id, product_name: product.name, category: product.category,
+   shark: product.shark, deal_status: product.dealStatus || 'investor'};
+ }
+ document.querySelectorAll('.card').forEach(card => {
+  card.querySelectorAll('a').forEach(link => {
+   link.addEventListener('click', () => captureAnalytics('amazon_click', {
+    ...analyticsProductProperties(card),
+    click_location: link.classList.contains('shop') ? 'amazon_button' : link.classList.contains('shark-note') ? 'shark_section' : 'product',
+    destination: link.href
+   }));
+  });
+ });
+ if (typeof IntersectionObserver === 'function') {
+  const productViewObserver = new IntersectionObserver(entries => {
+   entries.forEach(entry => {
+    if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+     captureAnalytics('product_viewed', analyticsProductProperties(entry.target));
+     productViewObserver.unobserve(entry.target);
+    }
+   });
+  }, {threshold: 0.5});
+  document.querySelectorAll('.card').forEach(card => productViewObserver.observe(card));
+ }
+ document.querySelectorAll('[data-category], [data-shark]').forEach(button => {
+  button.addEventListener('click', () => captureAnalytics('filter_changed', {
+   filter_type: button.dataset.category !== undefined ? 'category' : 'shark',
+   filter_value: button.dataset.category ?? button.dataset.shark
+  }));
+ });
+}
